@@ -6,16 +6,14 @@ const images = require.context('../../public/images', true);
 export default function Card(){
     let queImage;
     const [res,setRes] = React.useState(null);
-    const [image,setImage] = React.useState('');
+    const image= React.useRef('');
     React.useEffect(() => {
         fetch('https://main--snazzy-truffle-f37f48.netlify.app/.netlify/functions/app/question')
           .then(results => results.json())
           .then(data => {
             setRes(data[0]);
-            console.log(data[0])
-            console.log(images)
             queImage = require('../../public/images/'+data[0].image+'.png')
-            setImage(queImage)
+            image.current = queImage
           });
       }, []); 
     return (<div>
@@ -23,7 +21,7 @@ export default function Card(){
         <div style={{display:'flex',gap:'10%'}}>
             <div>
             {/* <img src={`/static/media/${res?.image}.png`} /> */}
-                <img src={image}/>
+                <img src={image.current} alt="image"/>
             </div>
             <div>
                 {res?.question}
