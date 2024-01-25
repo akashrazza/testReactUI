@@ -4,16 +4,16 @@ import Options from "./options";
 import React from 'react';
 
 export default function Card(){
-    let queImage;
+    let queImage =  React.useRef('');;
     const [res,setRes] = React.useState(null);
-    const image= React.useRef('');
+    const image= 
     React.useEffect(() => {
         fetch('https://main--snazzy-truffle-f37f48.netlify.app/.netlify/functions/app/question')
           .then(results => results.json())
           .then(data => {
             setRes(data[0]);
-            queImage = require('../../public/images/'+data[0].image+'.png')
-            image.current = queImage
+            queImage.current = require('../../public/images/'+data[0].image+'.png')
+            image.current = queImage.current
           });
       }, []); 
     return (<div>
