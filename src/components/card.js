@@ -2,7 +2,7 @@ import CardHeader from "./card_header";
 import Options from "./options";
 // import logo from './img1.png';
 import React from 'react';
-const images = require.context('../../public/images', true);
+
 export default function Card(){
     let queImage;
     const [res,setRes] = React.useState(null);
@@ -21,7 +21,7 @@ export default function Card(){
         <div style={{display:'flex',gap:'10%'}}>
             <div>
             {/* <img src={`/static/media/${res?.image}.png`} /> */}
-                <img src={image.current} alt="image"/>
+                <img src={image.current} alt="ops"/>
             </div>
             <div>
                 {res?.question}
