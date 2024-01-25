@@ -4,9 +4,9 @@ import Options from "./options";
 import React from 'react';
 
 export default function Card(){
-    let queImage =  React.useRef('');;
+    let queImage =  React.useRef('');
     const [res,setRes] = React.useState(null);
-    const image= 
+    const image= React.useRef('');
     React.useEffect(() => {
         fetch('https://main--snazzy-truffle-f37f48.netlify.app/.netlify/functions/app/question')
           .then(results => results.json())
