@@ -8,7 +8,7 @@ export default function Card(){
     const [res,setRes] = React.useState(null);
     const image= React.useRef('');
     React.useEffect(() => {
-        fetch('https://main--snazzy-truffle-f37f48.netlify.app/.netlify/functions/app/question')
+        fetch('https://ops-fbum.onrender.com/question')
           .then(results => results.json())
           .then(data => {
             setRes(data[0]);
